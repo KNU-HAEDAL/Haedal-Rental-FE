@@ -1,5 +1,5 @@
 const ItemAddPage = () => {
-	return <div>ItemAddPage</div>;
+  return <div>ItemAddPage</div>;
 };
 
 export default ItemAddPage;
