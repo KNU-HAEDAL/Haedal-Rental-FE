@@ -10,7 +10,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.66.9",
+    "@tanstack/react-query-devtools": "^5.66.9",
+    "@tanstack/react-query-next-experimental": "^5.66.9",
     "@workspace/ui": "workspace:*",
+    "axios": "^1.8.0",
     "lucide-react": "0.456.0",
     "next": "^15.1.0",
     "next-themes": "^0.4.3",
@@ -20,13 +24,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@tanstack/react-query": "^5.66.9",
     "@types/node": "^20",
     "@types/react": "18.3.0",
     "@types/react-dom": "18.3.1",
     "@workspace/eslint-config": "workspace:^",
     "@workspace/typescript-config": "workspace:*",
-    "axios": "^1.7.9",
+    "jest": "^29.7.0",
+    "msw": "^2.7.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
