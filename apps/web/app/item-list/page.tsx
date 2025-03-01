@@ -1,5 +1,5 @@
 const ItemListPage = () => {
-	return <div>ItemListPage</div>;
+  return <div>ItemListPage</div>;
 };
 
 export default ItemListPage;
