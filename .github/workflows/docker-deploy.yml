@@ -28,5 +28,5 @@ jobs:
 
       - name: Docker Build & Push check
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/haedal-rental:latest .
+         docker build -f apps/web/Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/haedal-rental:latest apps/web
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/haedal-rental:latest
