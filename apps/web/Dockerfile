@@ -8,8 +8,12 @@ RUN apk update
 
 WORKDIR /app
 RUN npm install -g pnpm turbo
-COPY . .
 
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable
+RUN pnpm install --frozen-lockfile
+
+COPY . .
 RUN turbo prune --scope=web --docker
 
 # installer stage
@@ -21,7 +25,7 @@ WORKDIR /app
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/pnpm-lock.yaml ./pnpm-lock.yaml
 RUN corepack enable
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 
 COPY --from=builder /app/out/full/ .
