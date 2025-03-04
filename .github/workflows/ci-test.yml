@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Install Turbo
+        run: pnpm install -g @turbo/turbo
+
       - name: Lint Code
         run: turbo lint
 
