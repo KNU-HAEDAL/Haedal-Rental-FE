@@ -26,6 +26,9 @@ jobs:
           node-version: 22
           cache: 'pnpm'
 
+      - name: Cache for Turbo
+        uses: rharkor/caching-for-turbo@v1.5
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --prod
 
