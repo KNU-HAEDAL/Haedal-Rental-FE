@@ -8,8 +8,8 @@ on:
       - main
       - feat#*
     paths:
-      - '**'
-      - '!/packages/ui/**'
+      - 'apps/web/**'
+      - '!packages/ui/**'
       - '../workflows/ci-test.yml'
 
 jobs:
@@ -39,6 +39,8 @@ jobs:
           path: |
             ~/.pnpm-store
             **/node_modules
+            apps/web/node_modules
+            packages/*/node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
               ${{ runner.os }}-pnpm-
@@ -47,7 +49,7 @@ jobs:
         uses: rharkor/caching-for-turbo@v1.5
 
       - name: Install dependencies
-        run: pnpm install --strict-peer-dependencies=false --no-frozen-lockfile
+        run: pnpm install --strict-peer-dependencies=false --frozen-lockfile
 
       - name: Install Turbo
         run: pnpm add turbo --save-dev -w
