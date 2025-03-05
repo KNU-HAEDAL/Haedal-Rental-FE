@@ -49,4 +49,4 @@ jobs:
         run: pnpm add turbo --save-dev -w
 
       - name: Lint Code
-        run: pnpm turbo lint build --parallel
+        run: pnpm exec turbo run lint build --parallel
