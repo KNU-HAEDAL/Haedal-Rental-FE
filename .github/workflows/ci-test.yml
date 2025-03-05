@@ -2,9 +2,11 @@ name: ESLint & Build Test
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     branches:
       - develop
-  workflow_dispatch:
+      - main
+      - feat#*
 
 jobs:
   test:
@@ -36,7 +38,7 @@ jobs:
         run: pnpm add turbo --save-dev -w
 
       - name: Lint Code
-        run: turbo lint
+        run: turbo run lint
 
       - name: Build Test
         run: turbo run build
