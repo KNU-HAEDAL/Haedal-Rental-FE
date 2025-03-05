@@ -8,7 +8,10 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "inputs": ["$TURBO_DEFAULT$", "**/*.{js,ts,jsx,tsx}"],
+      "cache": false,
+      "persistent": false
     },
     "check-types": {
       "dependsOn": ["^check-types"]
@@ -16,6 +19,22 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "format": {
+      "dependsOn": ["^format"],
+      "inputs": ["$TURBO_DEFAULT$", "**/*.{js,ts,jsx,tsx,json,md}"],
+      "cache": false,
+      "persistent": true
+    },
+    "typescript": {
+      "dependsOn": ["^typescript"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "tsconfig.json",
+        "packages/**/tsconfig.json"
+      ],
+      "cache": true,
+      "persistent": false
     }
   }
 }
