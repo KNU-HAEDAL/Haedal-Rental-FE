@@ -10,7 +10,7 @@ on:
     paths:
       - 'apps/web/**'
       - '!packages/ui/**'
-      - '../workflows/ci-test.yml'
+      - '.github/workflows/ci-test.yml'
 
 jobs:
   test:
@@ -34,7 +34,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Cache dependencies
-        uses: actions/cache/restore@v4
+        uses: actions/cache@v4
         with:
           path: |
             ~/.pnpm-store
@@ -43,7 +43,7 @@ jobs:
             packages/*/node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-              ${{ runner.os }}-pnpm-
+            ${{ runner.os }}-pnpm-
 
       - name: Cache for Turbo
         uses: rharkor/caching-for-turbo@v1.5
@@ -51,8 +51,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --strict-peer-dependencies=false --frozen-lockfile
 
-      - name: Install Turbo
+      - name: Verify ESLint Installation
+        run: pnpm exec eslint -v || echo "ESLint is missing!"
+
+      - name: Install Turbo (if missing)
         run: pnpm add turbo --save-dev -w
 
-      - name: Lint Code
-        run: pnpm turbo run lint build --parallel
+      - name: Lint & Build
+        run: pnpm exec turbo run lint build --parallel
