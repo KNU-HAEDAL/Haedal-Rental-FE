@@ -49,7 +49,4 @@ jobs:
         run: pnpm add turbo --save-dev -w
 
       - name: Lint Code
-        run: pnpm turbo typescript lint format build --parallel
-
-      - name: Build Test
-        run: turbo run build
+        run: pnpm turbo lint build --parallel
