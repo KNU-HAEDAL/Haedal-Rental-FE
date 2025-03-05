@@ -7,6 +7,10 @@ on:
       - develop
       - main
       - feat#*
+    paths:
+      - '**'
+      - '!/packages/ui/**'
+      - '../workflows/ci-test.yml'
 
 jobs:
   test:
