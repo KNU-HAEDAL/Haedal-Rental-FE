@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -49,13 +51,9 @@ jobs:
         uses: rharkor/caching-for-turbo@v1.5
 
       - name: Install dependencies
-        run: pnpm install --strict-peer-dependencies=false --frozen-lockfile
-
-      - name: Verify ESLint Installation
-        run: pnpm exec eslint -v || echo "ESLint is missing!"
-
-      - name: Install Turbo (if missing)
-        run: pnpm add turbo --save-dev -w
+        run: |
+          pnpm install --strict-peer-dependencies=false --no-frozen-lockfile
+          pnpm add turbo --save-dev -w
 
       - name: Lint & Build
-        run: pnpm exec turbo run lint build --parallel
+        run: pnpm turbo typescript lint format build --parallel
