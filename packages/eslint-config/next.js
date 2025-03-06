@@ -14,46 +14,44 @@ import { config as baseConfig } from './base.js';
  * @type {import("eslint").Linter.Config}
  * */
 export const nextJsConfig = [
-	...baseConfig,
-	js.configs.recommended,
-	eslintConfigPrettier,
-	...tseslint.configs.recommended,
-	{
-		...pluginReact.configs.flat.recommended,
-		languageOptions: {
-			...pluginReact.configs.flat.recommended.languageOptions,
-			globals: {
-				...globals.serviceworker,
-			},
-		},
-	},
-	{
-		plugins: {
-			'@next/next': pluginNext,
-		},
-		rules: {
-			...pluginNext.configs.recommended.rules,
-			...pluginNext.configs['core-web-vitals'].rules,
-		},
-	},
-	{
-		plugins: {
-			'react-hooks': pluginReactHooks,
-		},
-		settings: { react: { version: 19 } },
-		rules: {
-			...pluginReactHooks.configs.recommended.rules,
-			// React scope no longer necessary with new JSX transform.
-			'react/react-in-jsx-scope': 'off',
-			'react/prop-types': 'off',
-			'@typescript-eslint/no-unused-expressions': 'off',
-			'@typescript-eslint/no-unused-vars': 'off',
-			'tailwindcss/no-custom-classname': 'warn',
-			'no-template-curly-in-string': 'error',
-			'prettier/prettier': 'error',
-			'no-unused-vars': ['error', { args: 'none' }],
-			camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
-			'no-console': 'error',
-		},
-	},
+  ...baseConfig,
+  js.configs.recommended,
+  eslintConfigPrettier,
+  ...tseslint.configs.recommended,
+  {
+    ...pluginReact.configs.flat.recommended,
+    languageOptions: {
+      ...pluginReact.configs.flat.recommended.languageOptions,
+      globals: {
+        ...globals.serviceworker,
+      },
+    },
+  },
+  {
+    plugins: {
+      '@next/next': pluginNext,
+    },
+    rules: {
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs['core-web-vitals'].rules,
+    },
+  },
+  {
+    plugins: {
+      'react-hooks': pluginReactHooks,
+    },
+    settings: { react: { version: '19' } },
+    rules: {
+      ...pluginReactHooks.configs.recommended.rules,
+      // React scope no longer necessary with new JSX transform.
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-template-curly-in-string': 'error',
+      'no-unused-vars': ['error', { args: 'none' }],
+      camelcase: ['error', { properties: 'never', ignoreDestructuring: false }],
+      'no-console': 'error',
+    },
+  },
 ];
