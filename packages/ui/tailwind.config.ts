@@ -16,6 +16,9 @@ const config = {
         mono: ['var(--font-mono)', ...fontFamily.mono],
       },
       colors: {
+        moon: '#FFD050',
+        sun: '#E06260',
+        haedal: '#0F1729',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
