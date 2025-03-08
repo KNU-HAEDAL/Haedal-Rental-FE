@@ -1,1 +1,1 @@
-export * from './navigate-buttons-data';
+export * from './data';
