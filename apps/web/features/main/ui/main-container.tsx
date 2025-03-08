@@ -1,4 +1,3 @@
-import React from 'react';
 import { NAVIGATE_BUTTONS_DATA } from '../model';
 import Image from 'next/image';
 import Link from 'next/link';
