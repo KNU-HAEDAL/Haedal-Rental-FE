@@ -1,9 +1,21 @@
+import Image from 'next/image';
+import { MainAuthButtons, MainContainer } from '@/src/features';
+import Link from 'next/link';
+
 export default function Page() {
   return (
-    <div className='flex items-center justify-center min-h-svh'>
-      <div className='flex flex-col items-center justify-center gap-4'>
-        <h1 className='text-2xl font-bold'>메인페이지</h1>
-      </div>
+    <div className='flex flex-col items-center h-dvh text-center justify-center gap-3'>
+      <Link href='/'>
+        <Image
+          src='/logo/symbol-logo.png'
+          alt='logo'
+          className='cursor-pointer'
+          width={230}
+          height={139}
+        />
+      </Link>
+      <MainAuthButtons />
+      <MainContainer />
     </div>
   );
 }
