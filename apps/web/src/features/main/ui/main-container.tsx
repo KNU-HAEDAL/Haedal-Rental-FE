@@ -2,11 +2,12 @@ import { NAVIGATE_BUTTONS_DATA } from '../model';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const MainContainer = () => {
+export const MainContainer = () => {
   return (
     <div className='flex flex-col items-center w-[550px] h-[450px] gap-5 border border-gray-200'>
       <div className='w-full bg-haedal text-white text-xl font-bold py-3'>
         물품 대여 장부 서비스
+        <p className='text-rose-600 text-xl font-bold '>물품 대여 장부 서비스</p>
       </div>
       <div className='text-start mx-5'>
         <p>해달 동아리방 물품 대여 서비스 입니다.</p>
@@ -33,4 +34,3 @@ const MainContainer = () => {
   );
 };
 
-export default MainContainer;
