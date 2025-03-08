@@ -2,6 +2,13 @@ import { Geist, Geist_Mono } from 'next/font/google';
 
 import '@workspace/ui/globals.css';
 import { Providers } from '@/shared';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  icons: {
+    icon: '/favicon.ico',
+  }
+};
 
 const fontSans = Geist({
   subsets: ['latin'],
