@@ -11,7 +11,7 @@ export const LoginContainer = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { isValid },
   } = useForm<FormData>({ mode: 'onChange' });
 
   const onSubmit = (data: FormData) => {
