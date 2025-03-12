@@ -11,7 +11,7 @@ export const LoginContainer = () => {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
   } = useForm<FormData>({ mode: 'onChange' });
 
   const onSubmit = (data: FormData) => {
@@ -36,6 +36,9 @@ export const LoginContainer = () => {
                 {...register(name as keyof FormData, { required: `${label}를 입력해주세요.` })}
                 className='w-full text-sm py-2 px-3 rounded-lg border'
               />
+              {errors[name as keyof FormData] && (
+                <p className='text-red-500 text-xs'>{errors[name as keyof FormData]?.message}</p>
+              )}
             </li>
           ))}
         </ul>
