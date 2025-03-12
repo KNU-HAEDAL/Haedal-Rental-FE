@@ -8,6 +8,11 @@ export const LoginContainer = () => {
 
   const isDisabled = !id || !password;
 
+  const inputFields = [
+    { label: '아이디', type: 'text', value: id, onChange: setId },
+    { label: '비밀번호', type: 'password', value: password, onChange: setPassword },
+  ];
+
   // Todo: 폼 제출 - 실패 시 응답 보여주기
 
   return (
@@ -15,24 +20,17 @@ export const LoginContainer = () => {
       <h1 className='font-semibold px-8 text-xl'>로그인</h1>
       <form action='' className='flex flex-col gap-8'>
         <ul className='flex flex-col gap-3 px-8'>
-          <li className='flex flex-col gap-2 items-start'>
-            <label className='text-sm font-semibold'>아이디</label>
-            <input
-              type='text'
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-              className='w-full text-sm py-2 px-3 rounded-lg border'
-            />
-          </li>
-          <li className='flex flex-col gap-2 items-start'>
-            <label className='text-sm font-semibold'>비밀번호</label>
-            <input
-              type='password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className='w-full text-sm py-2 px-3 rounded-lg border'
-            />
-          </li>
+          {inputFields.map(({ label, type, value, onChange }) => (
+            <li key={label} className='flex flex-col gap-2 items-start'>
+              <label className='text-sm font-semibold'>{label}</label>
+              <input
+                type={type}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className='w-full text-sm py-2 px-3 rounded-lg border'
+              />
+            </li>
+          ))}
         </ul>
         <div className='w-full px-8'>
           <button
