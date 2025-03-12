@@ -33,7 +33,7 @@ export const LoginContainer = () => {
               <label className='text-sm font-semibold'>{label}</label>
               <input
                 type={type}
-                {...register(name as keyof FormData)}
+                {...register(name as keyof FormData, { required: `${label}를 입력해주세요.` })}
                 className='w-full text-sm py-2 px-3 rounded-lg border'
               />
             </li>
