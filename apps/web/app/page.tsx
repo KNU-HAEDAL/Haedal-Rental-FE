@@ -1,9 +1,12 @@
+import { MainContainer } from '@/features';
+import { SymbolLogo, AuthButtons } from '@/shared';
+
 export default function Page() {
   return (
-    <div className='flex items-center justify-center min-h-svh'>
-      <div className='flex flex-col items-center justify-center gap-4'>
-        <h1 className='text-2xl font-bold'>메인페이지</h1>
-      </div>
+    <div className='flex flex-col items-center h-dvh text-center justify-center gap-3'>
+      <SymbolLogo />
+      <AuthButtons />
+      <MainContainer />
     </div>
   );
 }
